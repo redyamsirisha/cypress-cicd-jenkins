@@ -4,14 +4,7 @@ def COLOR_MAP = [
 ]
 pipeline {
 	     agent any
-	
-	    	options {
-	        ansiColor('xterm')
-		timeout(time: 1, unit: 'HOURS')
-	       }
-	 environment {
-    SLACK_CHANNEL = "cypress-maor-test"
-  }
+
 	       stages {
 	       
 	        stage('Check versions') {
