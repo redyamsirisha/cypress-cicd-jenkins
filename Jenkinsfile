@@ -1,6 +1,5 @@
 pipeline {
-  agent {
-  }
+  agent any
 
   stages {
     // first stage installs node dependencies and Cypress binary
