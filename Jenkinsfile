@@ -7,12 +7,9 @@ pipeline {
 
 	       stages {
 	       
-	        stage('Check versions') {
+	        stage('Change dir') {
 	            steps {
-	                   echo '######## Check versions ########'
-			   bat "node --version"
-	                   bat "git version"
-
+	                   sh 'cd cypress/'
 		      }
 		   }
 	            
