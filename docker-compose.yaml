@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  angular:
+    build:
+      context: .
+      dockerfile: Dockerfile-ang
+    ports:
+      - '80:80'
+
+  cypress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - angular
+
+  e2e-chrome:
+    image: "cypress"
+    environment:
+        - CYPRESS_baseUrl=http://0.0.0.0:8080/
+    command: ["testsmokechrome"] 
+    network_mode: 'host'
+    volumes:
+      - ./cypress/cypress/reports_docker/chrome/videos:/cypressdocker/cypress/videos
+      - ./cypress/cypress/reports_docker/chrome:/cypressdocker/cypress/reports
+
+
