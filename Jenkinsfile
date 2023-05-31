@@ -1,43 +1,53 @@
+def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
 pipeline {
-   agent any
+	     agent any
+	
+	    	options {
+	        ansiColor('xterm')
+		timeout(time: 1, unit: 'HOURS')
+	       }
+	 environment {
+    SLACK_CHANNEL = "cypress-maor-test"
+  }
+	       stages {
+	       
+	        stage('Check versions') {
+	            steps {
+	                   echo '######## Check versions ########'
+			   bat "node --version"
+	                   bat "git version"
 
-   tools {nodejs "Node14"}
-
-   environment {
-       CHROME_BIN = '/bin/google-chrome'
-      
-   }
-
-   stages {
-       stage('Dependencies') {
-           steps {
-               sh 'cd cypress/'
-           }
-       }
-       stage('Dependencies') {
-           steps {
-               sh 'npm install'
-           }
-       }       
-       stage('e2e Tests') {
-         Parallel{
-             stage('Test 1') {
-                  steps {
-                sh 'npm run testsmokechrome'
-                  }
-               }
-             
-             stage('Test 2') {
-                  steps {
-                sh 'npm run testregedge'
-                  }
-               }
-
-       }
-       stage('Deploy') {
-           steps {
-               echo 'Deploying....'
-           }
-       }
-   }
+		      }
+		   }
+	            
+	        stage('Install dependencies') {
+	            steps {
+	                  echo '######## Install dependencies ########'
+	                  bat "npm install"
+	            }
+	        }
+	            
+	        stage('client-e2e-testing') {
+	            steps {
+	                   echo '######## Running cypress tests ########'
+	                   bat "npm run testsmokechrome"   // run the relevant script in package json
+	          }
+		
+                 post {
+   		 always {
+      			publishHTML (target : [
+			    allowMissing: true,
+			    alwaysLinkToLastBuild: false,
+			    keepAll: false,
+			    reportDir: 'cypress',
+			    reportFiles: 'mochawesome.html',
+			    reportName: 'HTML Report',
+			    reportTitles: 'HTML Report']) 
+   			}
+  		  }  
+	    }
+      }
 }
