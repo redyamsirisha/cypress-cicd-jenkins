@@ -9,8 +9,8 @@ pipeline {
         // on local Jenkins machine (assuming port 8080) see
         // http://localhost:8080/pipeline-syntax/globals#env
         echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        sh 'sudo apt install nodejs'
-        sh 'sudo apt install npm'
+        sh 'apt install nodejs'
+        sh 'apt install npm'
       }
     }
 
