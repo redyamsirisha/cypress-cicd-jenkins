@@ -7,7 +7,7 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        sh 'cd cyprss'
+        sh 'cd cypress'
       }
     }
         
