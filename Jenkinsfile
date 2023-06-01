@@ -10,6 +10,8 @@ pipeline {
         sh 'pwd'
         dir ('/var/jenkins_home/workspace/cypress_cicd/cypress'){
              sh 'pwd'
+             sh 'npm install'
+             sh 'npm run testsmokechrome'
         }
       }
     }
