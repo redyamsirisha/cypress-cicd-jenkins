@@ -6,10 +6,10 @@ pipeline {
     stage('Cloning Git') {
       steps {
         sh 'pwd'
+        def dockerHome = tool 'docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"        
         dir ('/var/jenkins_home/workspace/cypress_cicd/cypress'){
              sh 'pwd'
-             def dockerHome = tool 'docker'
-             env.PATH = "${dockerHome}/bin:${env.PATH}"
              sh 'docker run -v $PWD:/e2e -w /e2e cypress/included:3.4.0'
              sh 'npm install'
              sh 'npm run testsmokechrome'
