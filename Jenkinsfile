@@ -8,8 +8,9 @@ pipeline {
     stage('Cloning Git') {
       steps {
         sh 'pwd'
-        dir ('cypress')
-        sh 'pwd'
+        dir ('/var/jenkins_home/workspace/cypress_cicd/cypress'){
+             sh 'pwd'
+        }
       }
     }
         
