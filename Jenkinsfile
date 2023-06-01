@@ -8,7 +8,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
         sh 'pwd'
-        sh 'cd cypress'
+        dir ('cypress')
         sh 'pwd'
       }
     }
