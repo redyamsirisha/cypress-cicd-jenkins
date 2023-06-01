@@ -11,7 +11,6 @@ pipeline {
         dir ('/var/jenkins_home/workspace/cypress_cicd/cypress'){
              sh 'pwd'
              sh 'npm install'
-             sh 'apt install xvfb'
              sh 'npm run testsmokechrome'
         }
       }
