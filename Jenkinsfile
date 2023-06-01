@@ -26,5 +26,4 @@ pipeline {
          sh 'npm run testsmokechrome'
       }
     }      
-  }
 }
