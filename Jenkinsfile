@@ -7,7 +7,7 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        sh 'cd cypress'
+        dir('/var/jenkins_home/workspace/cypress_cicd/cypress') 
       }
     }
         
