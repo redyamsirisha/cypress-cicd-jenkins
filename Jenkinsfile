@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    // this image provides everything needed to run Cypress
-  }
+  agent any
 
   stages {
     // first stage installs node dependencies and Cypress binary
