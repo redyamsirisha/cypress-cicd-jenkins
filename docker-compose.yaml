@@ -15,7 +15,7 @@ services:
       - angular
 
   e2e-chrome:
-    image: "cypress"
+    image: "cypress-test"
     environment:
         - CYPRESS_baseUrl=https://www.youtube.com/
     command: ["testsmokechrome"] 
