@@ -17,7 +17,7 @@ pipeline {
       steps {
         // start local server in the background
         // we will shut it down in "post" command block
-        sh 'docker-compose run e2e-chrome --no-color'
+        sh 'docker-compose run e2e-chrome'
       }
     }
   }
