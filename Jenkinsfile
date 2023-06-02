@@ -20,5 +20,13 @@ pipeline {
         sh 'docker-compose run e2e-chrome'
       }
     }
+
+    stage('pwd') {
+      steps {
+        // start local server in the background
+        // we will shut it down in "post" command block
+        sh 'pwd'
+      }
+    }
   }
 }
