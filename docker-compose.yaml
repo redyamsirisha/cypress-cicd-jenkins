@@ -17,7 +17,7 @@ services:
   e2e-chrome:
     image: "cypress"
     environment:
-        - CYPRESS_baseUrl=http://0.0.0.0:8080/
+        - CYPRESS_baseUrl=https://www.youtube.com/
     command: ["testsmokechrome"] 
     network_mode: 'host'
     volumes:
