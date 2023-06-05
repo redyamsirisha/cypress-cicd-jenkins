@@ -21,6 +21,6 @@ services:
     command: ["testsmokechrome"] 
     network_mode: 'host'
     volumes:
-      - ./var/jenkins_home/workspace/cypress_cicd/cypress/reports:/cypressdocker/cypress/reports
+      - ./var/jenkins_home/workspace/cypress_cicd/cypress/reports:/docker/cypress/reports
 
 
