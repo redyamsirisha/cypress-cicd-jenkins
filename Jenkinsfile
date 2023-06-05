@@ -10,6 +10,7 @@ pipeline {
         // http://localhost:8080/pipeline-syntax/globals#env
         echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
         sh 'docker build -t cypress-test .'
+        sh 'tree cypress'
       }
     }
 
