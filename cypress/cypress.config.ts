@@ -24,8 +24,8 @@ export default defineConfig({
     "video": true,
     "viewportWidth": 1280,
     "viewportHeight": 630,
-    "screenshotsFolder": "cypress/reports/screenshots/",
-    "videosFolder": "cypress/reports/videos/",
+    "screenshotsFolder": "/var/jenkins_home/workspace/cypress_cicd/cypress/reports/screenshots/",
+    "videosFolder": "/var/jenkins_home/workspace/cypress_cicd/cypress/reports/videos/",
     "screenshotOnRunFailure": true,
     
     "chromeWebSecurity": false,
