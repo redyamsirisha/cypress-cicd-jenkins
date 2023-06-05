@@ -26,6 +26,7 @@ pipeline {
         // start local server in the background
         // we will shut it down in "post" command block
         sh 'pwd'
+        sh 'tree cypress_cicd'
       }
     }
   }
