@@ -34,7 +34,7 @@ pipeline {
         stage('export') {
            steps {
                sh "cp -r /var/jenkins_home/jobs/cypress_cicd/builds/23/htmlreports/ChromeReports /var/jenkins_home/workspace/"
-               sh "cp -r /var/jenkins_home/workspace/cypress_cicd/cypress/reports /var/jenkins_home/workspace/"
+               sh "docker cp ${env.BUILD_NUMBEr}:/var/jenkins_home/workspace/cypress_cicd/cypress/reports /var/jenkins_home/workspace/"
            }
         }      
    }
