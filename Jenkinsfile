@@ -1,6 +1,8 @@
 pipeline {
   agent any
-
+  options{
+       ansiColor('xterm')
+  }
   stages {
     // first stage installs node dependencies and Cypress binary
     stage('build image') {
@@ -30,5 +32,10 @@ pipeline {
         sh 'tree cypress'
       }
     }
+    post{
+         always{
+             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir:'cypress/report', reportFiles:'index.html', reportName:'HTML Report', reportTiltles:])
+         }
+    }    
   }
 }
