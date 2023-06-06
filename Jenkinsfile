@@ -12,6 +12,7 @@ pipeline {
         stage('testing in chrome') {
            steps {
                sh "docker-compose run e2e-chrome"
+               sh "docker ps"
            }
         }
         stage('Deploying') {
