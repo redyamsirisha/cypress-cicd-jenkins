@@ -14,10 +14,22 @@ pipeline {
                sh "docker-compose run e2e-chrome"
            }
         }
-       stage('Deploying') {
+        stage('Deploying') {
            steps {
                echo "Deploy the app"
            }
-       }
+        }
+        stage ('Report') {
+            steps {
+                  publishHTML(target: [allowMissing: false,
+                  alwaysLinkToLastBuild: false,
+                  keepAll: true,
+                  reportDir: 'cypress/reports/mochareports/',
+                  reportFiles: 'report.html',
+                  reportName: 'ChromeReports',
+                  reportTitles: 'jenkins-Chrome$BUILD_NUMBER'
+                  ])
+            }
+        }
    }
 }
