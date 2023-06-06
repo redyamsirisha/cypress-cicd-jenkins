@@ -1,7 +1,5 @@
 pipeline {
    agent any
-   parameters{
-        choice(name: 'Browser', choices: ['chrome','edge','firefox'], description: "Choice the browser where you want to execute your script")
    }
    options{
         ansiColor('xterm')
