@@ -31,7 +31,7 @@ pipeline {
                   ])
             }
         }
-        stage('testing in chrome') {
+        stage('export') {
            steps {
                sh "cp /var/jenkins_home/jobs/cypress_cicd/builds/23/htmlreports/ChromeReports /var/jenkins_home/workspace/"
            }
