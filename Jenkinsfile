@@ -24,7 +24,7 @@ pipeline {
                   publishHTML(target: [allowMissing: false,
                   alwaysLinkToLastBuild: false,
                   keepAll: true,
-                  reportDir: 'cypress/reports/mochareports/',
+                  reportDir: '/var/jenkins_home/workspace/cypess',
                   reportFiles: 'report.html',
                   reportName: 'ChromeReports',
                   reportTitles: 'jenkins-Chrome$BUILD_NUMBER'
