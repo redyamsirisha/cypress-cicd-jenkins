@@ -12,7 +12,6 @@ pipeline {
         stage('testing in chrome') {
            steps {
                sh "docker-compose run e2e-chrome"
-               sh "docker ps"
            }
         }
         stage('Deploying') {
@@ -31,11 +30,6 @@ pipeline {
                   reportTitles: 'jenkins-Chrome$BUILD_NUMBER'
                   ])
             }
-        }
-        stage('export') {
-           steps {
-               sh "docker cp e7c5aaa8f30e:/var/jenkins_home/jobs/cypress_cicd/builds/$BUILD_NUMBER/htmlreports/ChromeReports /home/hareesht/jenkins_home/workspace/$BUILD_NUMBER/htmlreports/ChromeReports"
-           }
-        }      
+        }     
    }
 }
