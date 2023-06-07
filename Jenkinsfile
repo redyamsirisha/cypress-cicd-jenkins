@@ -9,7 +9,7 @@ pipeline {
                sh "docker build -f angular/Dockerfile -t angular-app ."
            }
         }
-        stage('testing in chrome') {
+        stage('app deploy in container') {
            steps {
                sh "docker run -p 80:80 angular-app"
            }
