@@ -6,7 +6,7 @@ pipeline {
    stages {
         stage('Build image') {
            steps {
-               sh "docker build -t cypress-test ."
+               sh "docker build -f cypress/Dockerfile -t angular-app ."
            }
         }
         stage('testing in chrome') {
