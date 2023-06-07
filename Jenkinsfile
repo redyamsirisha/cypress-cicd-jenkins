@@ -4,14 +4,14 @@ pipeline {
         ansiColor('xterm')
    }
    stages {
-        stage('Build image') {
+        stage('Build the image for Angular app') {
            steps {
-               sh "docker build -f cypress/Dockerfile -t angular-app ."
+               sh "docker build -f angular/Dockerfile -t angular-app ."
            }
         }
         stage('testing in chrome') {
            steps {
-               sh "docker-compose run e2e-chrome"
+               sh "docker run -p 80:80 angular-app"
            }
         }
         stage('Deploying') {
@@ -19,6 +19,16 @@ pipeline {
                echo "Deploy the app"
            }
         }
+        stage('Build image') {
+           steps {
+               sh "docker build -t cypress-test ."
+           }
+        }
+        stage('testing in chrome') {
+           steps {
+               sh "docker-compose run e2e-chrome"
+           }
+        }      
         stage ('Report') {
             steps {
                   publishHTML(target: [allowMissing: false,
