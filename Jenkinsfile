@@ -19,6 +19,11 @@ pipeline {
                echo "Deploy the app"
            }
         }
+        stage('Deploying') {
+           steps {
+               echo "Running on http://0.0.0.0:4200/"
+           }
+        }      
         stage('Build image') {
            steps {
                sh "docker build -t cypress-test ."
@@ -33,12 +38,7 @@ pipeline {
            steps {
                sh "docker-compose run e2e-edge"
            }
-        }
-        stage('testing in electron') {
-           steps {
-               sh "docker-compose run e2e-electron"
-           }
-        }      
+        }   
         stage ('Report') {
             steps {
                   publishHTML(target: [allowMissing: false,
