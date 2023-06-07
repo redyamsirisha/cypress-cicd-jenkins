@@ -19,14 +19,5 @@ services:
     volumes:
       - ./cypress/cypress/reports/edge/videos:/cypressdocker/cypress/videos
       - ./cypress/cypress/reports/edge:/cypressdocker/cypress/reports
-      
-  e2e-electron:
-    image: "cypress-test"
-    environment:
-        - CYPRESS_baseUrl=http://0.0.0.0:4200/
-    command: ["runnonheaded"] 
-    network_mode: 'host'
-    volumes:
-      - ./cypress/cypress/reports/electron/videos:/cypressdocker/cypress/videos
-      - ./cypress/cypress/reports/electron:/cypressdocker/cypress/reports
+
 
