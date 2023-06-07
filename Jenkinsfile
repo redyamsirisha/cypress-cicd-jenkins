@@ -28,6 +28,16 @@ pipeline {
            steps {
                sh "docker-compose run e2e-chrome"
            }
+        }
+        stage('testing in edge') {
+           steps {
+               sh "docker-compose run e2e-edge"
+           }
+        }
+        stage('testing in electron') {
+           steps {
+               sh "docker-compose run e2e-electron"
+           }
         }      
         stage ('Report') {
             steps {
@@ -36,8 +46,8 @@ pipeline {
                   keepAll: true,
                   reportDir: '/var/jenkins_home/workspace/cypress',
                   reportFiles: 'report.html',
-                  reportName: 'ChromeReports',
-                  reportTitles: 'jenkins-Chrome$BUILD_NUMBER'
+                  reportName: 'Reports',
+                  reportTitles: 'jenkins-reports$BUILD_NUMBER'
                   ])
             }
         }     
