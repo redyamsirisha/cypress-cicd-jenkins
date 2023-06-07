@@ -24,8 +24,8 @@ export default defineConfig({
     "video": true,
     "viewportWidth": 1280,
     "viewportHeight": 630,
-    "screenshotsFolder": "/var/jenkins_home/workspace/cypress_cicd/cypress/reports/screenshots/",
-    "videosFolder": "/var/jenkins_home/workspace/cypress_cicd/cypress/reports/videos/",
+    "screenshotsFolder": "/cypress/reports/screenshots/",
+    "videosFolder": "cypress/reports/videos/",
     "screenshotOnRunFailure": true,
     
     "chromeWebSecurity": false,
@@ -43,9 +43,9 @@ export default defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     "reportDir": "cypress/reports",
-    "reportFilename": "GFX Automation Execution Report for [name] test - [status]",
+    "reportFilename": "Execution Report for [name] test - [status]",
     "charts": true,
-    "reportPageTitle": 'GFX Automation Execution Report',
+    "reportPageTitle": 'Execution Report',
     "embeddedScreenshots": true,
     "inlineAssets": true,
     "saveAllAttempts": true,
