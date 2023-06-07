@@ -19,7 +19,7 @@ pipeline {
                echo "Deploy the app"
            }
         }
-        stage('Deploying') {
+        stage('Application status') {
            steps {
                echo "Running on http://0.0.0.0:4200/"
            }
