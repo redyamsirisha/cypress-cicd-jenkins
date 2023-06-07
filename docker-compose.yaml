@@ -8,5 +8,15 @@ services:
     network_mode: 'host'
     volumes:
       - ./cypress/cypress/reports_docker/chrome:/var/jenkins_home/workspace/cypress_cicd/cypress/cypress/reports
+      
+  e2e-edge:
+    image: "cypress-test"
+    environment:
+        - CYPRESS_baseUrl=http://0.0.0.0:4200/
+    command: ["testsmokechrome"] 
+    network_mode: 'host'
+    volumes:
+      - ./:/cypress
+      
 
 
