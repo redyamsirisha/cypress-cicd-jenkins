@@ -1,7 +1,7 @@
 #stage 1
 FROM node:latest as node
 RUN mkdir app
-COPY ./angular/. app/
+COPY . app/
 WORKDIR /app
 RUN npm install
 RUN npm run build
